@@ -2,6 +2,7 @@
 #include <wiringPiSPI.h>
 #include <wiringPi.h>
 
+#include <stdlib.h>
 #include <math.h>
 
 
@@ -23,7 +24,7 @@ intensity : array of intensity (0 <= intensity[i] < 2**5)
 n : number of LED, ie length(r)
 */
 
-    char * data = malloc(sizeof(char) * (n * 4 + 8); //see datasheet
+    char * data = malloc(sizeof(char) * (n * 4 + 8)); //see datasheet
     int i, j;
 
     //start frame
@@ -83,10 +84,10 @@ int main(void)
     int N = 10; //number of LED
     int i;
 
-    r = malloc(sizeof(char) * N);
-    g = malloc(sizeof(char) * N);
-    b = malloc(sizeof(char) * N);
-    intensity = malloc(sizeof(char) * N);
+    char* r = malloc(sizeof(char) * N);
+    char* g = malloc(sizeof(char) * N);
+    char* b = malloc(sizeof(char) * N);
+    char* intensity = malloc(sizeof(char) * N);
 
     //define color
     for (i = 0; i < N; i++){
@@ -122,3 +123,4 @@ int main(void)
 
 	return 0;
 
+    }
